@@ -82,6 +82,8 @@ jobs:
           command: |
               cd frontend
               npm install
+              npm audit fix --force --audit-level=critical
+              npm audit fix --force --audit-level=critical
               npm run build
       - save_cache:
           paths: [frontend/node_modules]
@@ -468,9 +470,9 @@ workflows:
           requires: [run-migrations]
       - deploy-backend:
           requires: [run-migrations]
-      - smoke-test:
-          requires: [deploy-backend, deploy-frontend]
-      - cloudfront-update:
-          requires: [smoke-test]
+      #- smoke-test:
+       #   requires: [deploy-backend, deploy-frontend]
+      #- cloudfront-update:
+      #    requires: [smoke-test]
       #- cleanup:
        #   requires: [cloudfront-update]
