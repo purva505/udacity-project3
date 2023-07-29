@@ -112,7 +112,7 @@ jobs:
       - restore_cache: # Restore from cache
           keys: [test-frontend]
       - run: # Your job code here
-          name: Testing frntend build
+          name: Testing frontend build
           command: |
               cd frontend
               npm install
@@ -253,6 +253,7 @@ jobs:
           command: |
             cd backend
             npm install
+            npm run build
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
       - run:
