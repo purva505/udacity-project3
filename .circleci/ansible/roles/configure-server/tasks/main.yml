@@ -17,6 +17,6 @@
 
 - name: Move environment variable /etc/profile.d
   become: True
-    copy: 
-     src: env.sh
-     dest: /etc/profile.d/
+  copy: 
+    src: env.sh
+    dest: /etc/profile.d/
